@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>AD ROTATOR</title>
+    <style>
+        body{
+            background-color: #123;
+
+        }
+        #ad{
+            border: 1px dotted gray;
+            color: white;
+            padding: 1em;
+            font-family: arial;
+            background-image: url(images/cascade.jpg);
+           background-repeat: no-repeat;
+            
+        }
+        /*img{
+            width: 300px;
+            height: 200px;
+            
+        }*/
+    </style>
+</head>
+<body>
+    <div id="ad">
+       <!---<img src="images/cascade.jpg">
+        <img src="images/cofe.jpg">
+        <img src="images/snow.jpg">-->
+        
+
+</div>
+
+<script>
+    
+let adTitles =[
+    " This is the first ad title",
+    " This is the second ad title",
+    " This is the third ad title",
+]
+let adTexts =[
+   "text for the first ad ",
+  "text for the second ad ",
+  "text for the third ad ",
+]
+let adImages=[
+ "url(images/cascade.jpg)",
+ "url(images/cofe.jpg)",
+"url(images/snow.jpg)",
+]
+let adIndex = 0 
+
+
+function showAd (){
+    ad.innerHTML = `
+    <h1>${adTitles[adIndex]}</h1>
+    <p>${adTexts[adIndex]}</p> `
+
+}
+function showImages (){
+   ad.style.backgroundImage = `url(${adImages[adIndex]})`;
+}
+
+function rotateAds (){
+let lastTitle = adTitles.pop()
+adTitles.unshift(lastTitle)
+showAd()
+let lastText = adTexts.pop()
+adTexts.unshift(lastText)
+showAd()
+let lastImage = adImages.pop()
+adImages.unshift = (lastImage)
+
+}
+
+setInterval(rotateAds,3000)
+showAd()
+showImages ()
+</script>
+    
+</body>
+</html>
